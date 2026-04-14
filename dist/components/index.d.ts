@@ -1,4 +1,4 @@
-/* REPLACE_PROJECT_NAME custom elements */
+/* HubDiscussionsExtension custom elements */
 
 /**
  * Used to manually set the base path where assets can be found.

@@ -20,7 +20,7 @@ function _interopNamespace(e) {
   return Object.freeze(n);
 }
 
-const NAMESPACE = 'replace_project_name';
+const NAMESPACE = 'hubdiscussionsextension';
 
 /**
  * Virtual DOM patching algorithm based on Snabbdom by
@@ -468,4 +468,4 @@ exports.bootstrapLazy = bootstrapLazy;
 exports.promiseResolve = promiseResolve;
 exports.setNonce = setNonce;
 
-//# sourceMappingURL=index-2053d81a.js.map
+//# sourceMappingURL=index-a34fb4e6.js.map

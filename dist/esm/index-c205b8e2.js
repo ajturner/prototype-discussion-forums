@@ -1,4 +1,4 @@
-const NAMESPACE = 'replace_project_name';
+const NAMESPACE = 'hubdiscussionsextension';
 
 /**
  * Virtual DOM patching algorithm based on Snabbdom by
@@ -444,4 +444,4 @@ const writeTask = /*@__PURE__*/ queueTask(queueDomWrites, true);
 
 export { bootstrapLazy as b, promiseResolve as p, setNonce as s };
 
-//# sourceMappingURL=index-cc16aa99.js.map
+//# sourceMappingURL=index-c205b8e2.js.map
