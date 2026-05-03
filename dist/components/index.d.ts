@@ -1,4 +1,12 @@
 /* HubDiscussionsExtension custom elements */
+export { EntityCard as EntityCard } from '../types/components/entity-card/entity-card';
+export { HereDayWheel as HereDayWheel } from '../types/components/here-day-wheel/here-day-wheel';
+export { HereDeepTime as HereDeepTime } from '../types/components/here-deep-time/here-deep-time';
+export { HereModeSwitcher as HereModeSwitcher } from '../types/components/here-mode-switcher/here-mode-switcher';
+export { HerePhenologyWheel as HerePhenologyWheel } from '../types/components/here-phenology-wheel/here-phenology-wheel';
+export { HereStrata as HereStrata } from '../types/components/here-strata/here-strata';
+export { HereView as HereView } from '../types/components/here-view/here-view';
+export { LocationBar as LocationBar } from '../types/components/location-bar/location-bar';
 
 /**
  * Used to manually set the base path where assets can be found.

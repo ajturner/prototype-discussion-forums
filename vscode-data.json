@@ -1,4 +1,102 @@
 {
   "version": 1.1,
-  "tags": []
+  "tags": [
+    {
+      "name": "entity-card",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "compact",
+          "description": "Whether to show the card in a compact (inline) format"
+        },
+        {
+          "name": "selected",
+          "description": "Whether the card is currently selected/expanded"
+        }
+      ]
+    },
+    {
+      "name": "here-day-wheel",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "here-deep-time",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "here-mode-switcher",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "active-mode",
+          "description": "Currently active mode",
+          "values": [
+            {
+              "name": "day"
+            },
+            {
+              "name": "deep-time"
+            },
+            {
+              "name": "phenology"
+            },
+            {
+              "name": "strata"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "here-phenology-wheel",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": [
+        {
+          "name": "current-week",
+          "description": "Current week of year (1-52)"
+        }
+      ]
+    },
+    {
+      "name": "here-strata",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "here-view",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    },
+    {
+      "name": "location-bar",
+      "description": {
+        "kind": "markdown",
+        "value": ""
+      },
+      "attributes": []
+    }
+  ]
 }

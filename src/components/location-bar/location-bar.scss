@@ -1,0 +1,59 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.location-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 16px;
+  background: #1a2a3a;
+  color: #e0f2fe;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.place {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 15px;
+  font-weight: 600;
+
+  .name {
+    color: #ffffff;
+  }
+
+  .subname {
+    color: #90caf9;
+    font-weight: 400;
+  }
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  color: #b0bec5;
+  font-size: 12px;
+}
+
+.weather-item,
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  .desc {
+    color: #90a4ae;
+  }
+}
+
+.coords {
+  margin-left: auto;
+  font-size: 11px;
+  color: #607d8b;
+  font-family: monospace;
+}

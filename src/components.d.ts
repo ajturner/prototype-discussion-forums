@@ -5,20 +5,229 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { DeepTimeEra, Entity, ExploreMode, LocationContext, StrataLayer } from "./types";
 export namespace Components {
+    interface EntityCard {
+        /**
+          * Whether to show the card in a compact (inline) format
+         */
+        "compact": boolean;
+        /**
+          * The organism entity to display
+         */
+        "entity": Entity;
+        /**
+          * Whether the card is currently selected/expanded
+         */
+        "selected": boolean;
+    }
+    interface HereDayWheel {
+        /**
+          * Entities with peak activity hours
+         */
+        "entities": Entity[];
+        /**
+          * Current local time
+         */
+        "localTime": Date;
+    }
+    interface HereDeepTime {
+        /**
+          * Ordered list of eras (present → oldest)
+         */
+        "eras": DeepTimeEra[];
+    }
+    interface HereModeSwitcher {
+        /**
+          * Currently active mode
+         */
+        "activeMode": ExploreMode;
+    }
+    interface HerePhenologyWheel {
+        /**
+          * Current week of year (1-52)
+         */
+        "currentWeek": number;
+        /**
+          * Entities with phenology information
+         */
+        "entities": Entity[];
+    }
+    interface HereStrata {
+        /**
+          * Ordered list of strata layers (sky → bedrock)
+         */
+        "layers": StrataLayer[];
+    }
+    interface HereView {
+    }
+    interface LocationBar {
+        /**
+          * Full location context including weather and time
+         */
+        "context": LocationContext;
+    }
+}
+export interface EntityCardCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLEntityCardElement;
+}
+export interface HereModeSwitcherCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLHereModeSwitcherElement;
 }
 declare global {
+    interface HTMLEntityCardElement extends Components.EntityCard, HTMLStencilElement {
+    }
+    var HTMLEntityCardElement: {
+        prototype: HTMLEntityCardElement;
+        new (): HTMLEntityCardElement;
+    };
+    interface HTMLHereDayWheelElement extends Components.HereDayWheel, HTMLStencilElement {
+    }
+    var HTMLHereDayWheelElement: {
+        prototype: HTMLHereDayWheelElement;
+        new (): HTMLHereDayWheelElement;
+    };
+    interface HTMLHereDeepTimeElement extends Components.HereDeepTime, HTMLStencilElement {
+    }
+    var HTMLHereDeepTimeElement: {
+        prototype: HTMLHereDeepTimeElement;
+        new (): HTMLHereDeepTimeElement;
+    };
+    interface HTMLHereModeSwitcherElement extends Components.HereModeSwitcher, HTMLStencilElement {
+    }
+    var HTMLHereModeSwitcherElement: {
+        prototype: HTMLHereModeSwitcherElement;
+        new (): HTMLHereModeSwitcherElement;
+    };
+    interface HTMLHerePhenologyWheelElement extends Components.HerePhenologyWheel, HTMLStencilElement {
+    }
+    var HTMLHerePhenologyWheelElement: {
+        prototype: HTMLHerePhenologyWheelElement;
+        new (): HTMLHerePhenologyWheelElement;
+    };
+    interface HTMLHereStrataElement extends Components.HereStrata, HTMLStencilElement {
+    }
+    var HTMLHereStrataElement: {
+        prototype: HTMLHereStrataElement;
+        new (): HTMLHereStrataElement;
+    };
+    interface HTMLHereViewElement extends Components.HereView, HTMLStencilElement {
+    }
+    var HTMLHereViewElement: {
+        prototype: HTMLHereViewElement;
+        new (): HTMLHereViewElement;
+    };
+    interface HTMLLocationBarElement extends Components.LocationBar, HTMLStencilElement {
+    }
+    var HTMLLocationBarElement: {
+        prototype: HTMLLocationBarElement;
+        new (): HTMLLocationBarElement;
+    };
     interface HTMLElementTagNameMap {
+        "entity-card": HTMLEntityCardElement;
+        "here-day-wheel": HTMLHereDayWheelElement;
+        "here-deep-time": HTMLHereDeepTimeElement;
+        "here-mode-switcher": HTMLHereModeSwitcherElement;
+        "here-phenology-wheel": HTMLHerePhenologyWheelElement;
+        "here-strata": HTMLHereStrataElement;
+        "here-view": HTMLHereViewElement;
+        "location-bar": HTMLLocationBarElement;
     }
 }
 declare namespace LocalJSX {
+    interface EntityCard {
+        /**
+          * Whether to show the card in a compact (inline) format
+         */
+        "compact"?: boolean;
+        /**
+          * The organism entity to display
+         */
+        "entity"?: Entity;
+        /**
+          * Emitted when the card is clicked
+         */
+        "onCardSelect"?: (event: EntityCardCustomEvent<Entity>) => void;
+        /**
+          * Whether the card is currently selected/expanded
+         */
+        "selected"?: boolean;
+    }
+    interface HereDayWheel {
+        /**
+          * Entities with peak activity hours
+         */
+        "entities"?: Entity[];
+        /**
+          * Current local time
+         */
+        "localTime"?: Date;
+    }
+    interface HereDeepTime {
+        /**
+          * Ordered list of eras (present → oldest)
+         */
+        "eras"?: DeepTimeEra[];
+    }
+    interface HereModeSwitcher {
+        /**
+          * Currently active mode
+         */
+        "activeMode"?: ExploreMode;
+        /**
+          * Fired when user selects a different mode
+         */
+        "onModeChange"?: (event: HereModeSwitcherCustomEvent<ExploreMode>) => void;
+    }
+    interface HerePhenologyWheel {
+        /**
+          * Current week of year (1-52)
+         */
+        "currentWeek"?: number;
+        /**
+          * Entities with phenology information
+         */
+        "entities"?: Entity[];
+    }
+    interface HereStrata {
+        /**
+          * Ordered list of strata layers (sky → bedrock)
+         */
+        "layers"?: StrataLayer[];
+    }
+    interface HereView {
+    }
+    interface LocationBar {
+        /**
+          * Full location context including weather and time
+         */
+        "context"?: LocationContext;
+    }
     interface IntrinsicElements {
+        "entity-card": EntityCard;
+        "here-day-wheel": HereDayWheel;
+        "here-deep-time": HereDeepTime;
+        "here-mode-switcher": HereModeSwitcher;
+        "here-phenology-wheel": HerePhenologyWheel;
+        "here-strata": HereStrata;
+        "here-view": HereView;
+        "location-bar": LocationBar;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "entity-card": LocalJSX.EntityCard & JSXBase.HTMLAttributes<HTMLEntityCardElement>;
+            "here-day-wheel": LocalJSX.HereDayWheel & JSXBase.HTMLAttributes<HTMLHereDayWheelElement>;
+            "here-deep-time": LocalJSX.HereDeepTime & JSXBase.HTMLAttributes<HTMLHereDeepTimeElement>;
+            "here-mode-switcher": LocalJSX.HereModeSwitcher & JSXBase.HTMLAttributes<HTMLHereModeSwitcherElement>;
+            "here-phenology-wheel": LocalJSX.HerePhenologyWheel & JSXBase.HTMLAttributes<HTMLHerePhenologyWheelElement>;
+            "here-strata": LocalJSX.HereStrata & JSXBase.HTMLAttributes<HTMLHereStrataElement>;
+            "here-view": LocalJSX.HereView & JSXBase.HTMLAttributes<HTMLHereViewElement>;
+            "location-bar": LocalJSX.LocationBar & JSXBase.HTMLAttributes<HTMLLocationBarElement>;
         }
     }
 }

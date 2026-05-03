@@ -1,5 +1,14 @@
 {
-  "entries": [],
+  "entries": [
+    "./components/entity-card/entity-card.js",
+    "./components/here-day-wheel/here-day-wheel.js",
+    "./components/here-deep-time/here-deep-time.js",
+    "./components/here-mode-switcher/here-mode-switcher.js",
+    "./components/here-phenology-wheel/here-phenology-wheel.js",
+    "./components/here-strata/here-strata.js",
+    "./components/here-view/here-view.js",
+    "./components/location-bar/location-bar.js"
+  ],
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.3",
