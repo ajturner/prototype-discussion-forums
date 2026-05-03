@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
-  <title>HubDiscussionsExtension</title>
+  <title>Here — Ecosystem Immersion</title>
 
   <script type="module" src="./build/HubDiscussionsExtension.esm.js"></script>
   <script nomodule src="./build/HubDiscussionsExtension.js"></script>
@@ -14,34 +14,35 @@
     type="text/css"
     href="https://js.arcgis.com/calcite-components/1.0.7/calcite.css"
   />
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #0d1f2d;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    here-view {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
 </head>
 
 <body>
-  <!-- Delayed render so we can get the API key from URL parameters -->
-  <div id="placeholder"></div>
-
-  <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
-
-  <script>
-    // Dynamically add the component so we can set URL or object properties
-    const componentName = "prototype";
-
-    const placeholderEl = document.getElementById("placeholder");
-    const componentEl = document.createElement( componentName );
-
-    const urlParams = new URL(window.location).searchParams;
-    // Change for specific component properties
-    // componentEl.query = urlParams.get('query');
-    // componentEl.innerHTML = "Slot text";
-    
-    placeholderEl.appendChild(componentEl);
-  </script>
+  <here-view></here-view>
 </body>
 
 </html>

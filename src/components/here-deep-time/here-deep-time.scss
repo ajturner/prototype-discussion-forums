@@ -1,0 +1,320 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.empty {
+  padding: 24px;
+  text-align: center;
+  color: #9e9e9e;
+}
+
+.deep-time-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: #e0f2fe;
+}
+
+.deep-time-layout {
+  display: flex;
+  flex: 1;
+  gap: 0;
+  overflow: hidden;
+}
+
+// ── Vertical scrubber panel ──────────────────────────────────────────────────
+
+.scrubber-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 68px;
+  flex-shrink: 0;
+  background: #0d1f2d;
+  border-right: 1px solid #1e3a52;
+  padding: 8px 6px;
+  gap: 6px;
+  overflow-y: auto;
+}
+
+.scrubber-label {
+  font-size: 9px;
+  color: #78909c;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-family: monospace;
+  line-height: 1.2;
+
+  &--top { color: #4fc3f7; }
+  &--bottom { color: #9c27b0; }
+}
+
+.scrubber {
+  appearance: slider-vertical;
+  writing-mode: vertical-lr;
+  direction: rtl;
+  width: 8px;
+  height: 160px;
+  cursor: pointer;
+  accent-color: #4fc3f7;
+  flex-shrink: 0;
+
+  // Webkit
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #4fc3f7;
+    border: 2px solid #0d1f2d;
+    cursor: pointer;
+  }
+}
+
+// Vertical timeline node list
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.timeline__node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 6px 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  border-left: 2px solid transparent;
+  transition: border-color 0.15s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  &--active {
+    border-left-color: var(--era-color, #4fc3f7);
+    background: rgba(255, 255, 255, 0.06);
+
+    .timeline__dot {
+      background: var(--era-color, #4fc3f7);
+      transform: scale(1.3);
+    }
+  }
+}
+
+.timeline__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #37474f;
+  transition: background 0.15s ease, transform 0.15s ease;
+  flex-shrink: 0;
+}
+
+.timeline__label {
+  font-size: 8px;
+  color: #546e7a;
+  text-align: center;
+  line-height: 1.2;
+  font-family: monospace;
+
+  .timeline__node--active & {
+    color: var(--era-color, #4fc3f7);
+    font-weight: 700;
+  }
+}
+
+// ── Era content panel ────────────────────────────────────────────────────────
+
+.content-panel {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.era-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  animation: slideIn 0.25s ease;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: var(--era-color, #4fc3f7);
+    color: #000000;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    align-self: flex-start;
+  }
+
+  &__environment {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+  }
+
+  &__illustration {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  &__illustration-placeholder {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+    opacity: 0.7;
+    border-radius: 10px;
+  }
+
+  &__narrative {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #b0bec5;
+    margin: 0;
+  }
+
+  &__fossils {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+
+  &__fossils-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #78909c;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 8px;
+  }
+
+  &__sources {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  &__source-label {
+    font-size: 10px;
+    color: #546e7a;
+  }
+
+  &__source-link {
+    font-size: 10px;
+    color: #4fc3f7;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Fossil list
+.fossil-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  &__name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #cfd8dc;
+  }
+
+  &__taxon {
+    font-size: 10px;
+    font-style: italic;
+    color: #607d8b;
+  }
+
+  &__age {
+    font-size: 10px;
+    color: #546e7a;
+    font-family: monospace;
+  }
+}
+
+// ── Era navigation ───────────────────────────────────────────────────────────
+
+.era-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 10px;
+  background: #0d1f2d;
+  border-top: 1px solid #1e3a52;
+
+  &__btn {
+    background: none;
+    border: 1px solid #1e3a52;
+    color: #78909c;
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: color 0.12s ease, border-color 0.12s ease;
+
+    &:hover:not(:disabled) {
+      color: #4fc3f7;
+      border-color: #4fc3f7;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+
+  &__divider {
+    color: #1e3a52;
+    font-size: 14px;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

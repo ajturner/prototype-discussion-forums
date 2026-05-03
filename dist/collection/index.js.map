@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":"","sourcesContent":["export { Components, JSX } from './components';\n"]}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":"AAEA,uCAAuC;AACvC,cAAc,SAAS,CAAC","sourcesContent":["export { Components, JSX } from './components';\n\n// Re-export shared types for consumers\nexport * from './types';\n"]}

@@ -1,0 +1,267 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.empty {
+  padding: 24px;
+  color: #9e9e9e;
+  text-align: center;
+}
+
+.strata-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.strata-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.ruler {
+  display: flex;
+  flex-direction: column;
+  width: 60px;
+  flex-shrink: 0;
+  background: #1a2a3a;
+  padding: 0 4px;
+  overflow: hidden;
+}
+.ruler__mark {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-right: 6px;
+  min-height: 40px;
+}
+.ruler__label {
+  font-size: 9px;
+  color: #78909c;
+  text-align: right;
+  line-height: 1.2;
+  font-family: monospace;
+}
+
+.strata-column {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.layer {
+  width: 100%;
+  transition: flex 0.3s ease;
+}
+.layer__header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: filter 0.15s ease;
+  background: inherit;
+  color: inherit;
+}
+.layer__header:hover {
+  filter: brightness(1.08);
+}
+.layer__header:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: -2px;
+}
+.layer__label {
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+  min-width: 140px;
+}
+.layer__entities-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  flex: 1;
+  overflow: hidden;
+  max-height: 24px;
+}
+.layer__entity-chip {
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+.layer__entity-more {
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+.layer__toggle {
+  font-size: 11px;
+  flex-shrink: 0;
+  margin-left: auto;
+  opacity: 0.7;
+}
+.layer__body {
+  padding: 12px 14px 16px;
+  background: rgba(0, 0, 0, 0.15);
+  animation: slideDown 0.2s ease;
+}
+.layer__description {
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.85;
+  margin: 0 0 12px;
+}
+.layer__entity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.layer--expanded .layer__header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.entity-btn {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.15s ease;
+  color: inherit;
+}
+.entity-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+.entity-btn--selected {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.entity-btn__name {
+  font-size: 13px;
+  font-weight: 500;
+}
+.entity-btn__sci {
+  font-size: 11px;
+  font-style: italic;
+  opacity: 0.7;
+  margin-top: 1px;
+}
+
+.entity-panel {
+  margin-top: 12px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: fadeIn 0.2s ease;
+}
+.entity-panel__header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.entity-panel__name {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0;
+  flex: 1;
+}
+.entity-panel__sci {
+  font-size: 11px;
+  font-style: italic;
+  opacity: 0.7;
+}
+.entity-panel__close {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0.6;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: inherit;
+  flex-shrink: 0;
+}
+.entity-panel__close:hover {
+  opacity: 1;
+}
+.entity-panel__status {
+  font-size: 12px;
+  color: #a5d6a7;
+  margin: 4px 0;
+}
+.entity-panel__meta {
+  font-size: 11px;
+  opacity: 0.8;
+  margin: 4px 0;
+}
+.entity-panel__link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: #90caf9;
+  text-decoration: none;
+}
+.entity-panel__link:hover {
+  text-decoration: underline;
+}
+
+.strata-legend {
+  padding: 12px 16px;
+  background: #0d1f2d;
+  border-top: 1px solid #1e3a52;
+}
+.strata-legend__title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #78909c;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.strata-legend__desc {
+  font-size: 11px;
+  color: #546e7a;
+  margin: 0;
+  line-height: 1.4;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

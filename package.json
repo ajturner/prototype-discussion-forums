@@ -38,7 +38,10 @@
   "devDependencies": {
     "@esri/calcite-components": "^1.2.0",
     "@stencil/sass": "^2.0.0",
-    "@stencil/store": "^2.0.1"
+    "@stencil/store": "^2.0.1",
+    "@types/jest": "^27.0.3",
+    "jest": "^27.0.3",
+    "jest-cli": "^27.4.5"
   },
   "license": "Apache-2.0"
 }
